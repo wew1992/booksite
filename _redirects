@@ -1,0 +1,5 @@
+# Legacy/exported filenames -> canonical static pages
+/Home.html / 301
+/Bibliography.html /bibliography.html 301
+/Blog.html /blog.html 301
+/AboutMe.html /about-william-martino.html 301

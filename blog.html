@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Static site prepared for GitHub + Cloudflare Pages -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="William Martino blog posts about horror, writing, fear, and obsession.">
+  <link rel="stylesheet" href="styles/custom.css">
+
+  <style>
+    /* Blog-only layout overrides.
+       Kept here intentionally so only Blog.html needs to be replaced. */
+
+    body.wm-blog .wm-blog-section {
+      padding-top: clamp(2.5rem, 5vw, 4.5rem);
+      padding-bottom: clamp(4rem, 7vw, 7rem);
+    }
+
+    body.wm-blog .wm-blog-toolbar {
+      width: min(930px, calc(100% - 2rem));
+      margin: 0 auto 1.6rem;
+      color: var(--wm-gold, #d4af37);
+      font-size: .95rem;
+      line-height: 1.2;
+    }
+
+    body.wm-blog .wm-blog-list {
+      width: min(930px, calc(100% - 2rem));
+      margin: 0 auto;
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 1.5rem !important;
+      align-items: stretch;
+    }
+
+    body.wm-blog .wm-blog-card {
+      min-width: 0;
+      min-height: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-columns: none !important;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, .28) !important;
+      background: #1c0909 !important;
+      box-shadow: none;
+    }
+
+    body.wm-blog .wm-blog-image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #120101;
+    }
+
+    body.wm-blog .wm-blog-image img {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+      aspect-ratio: auto !important;
+      object-fit: cover !important;
+      transition: transform .35s ease;
+    }
+
+    body.wm-blog .wm-blog-card:hover .wm-blog-image img {
+      transform: scale(1.025);
+    }
+
+    body.wm-blog .wm-blog-copy {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1.35rem 1.4rem 1.45rem !important;
+    }
+
+    body.wm-blog .wm-blog-copy h2 {
+      margin: 0 0 .85rem;
+      font-size: clamp(1.12rem, 1.55vw, 1.35rem) !important;
+      line-height: 1.3 !important;
+      font-weight: 600;
+    }
+
+    body.wm-blog .wm-blog-copy h2 a {
+      color: var(--wm-text, #f4ece8);
+      text-decoration: none;
+    }
+
+    body.wm-blog .wm-blog-copy h2 a:hover,
+    body.wm-blog .wm-blog-copy h2 a:focus {
+      color: var(--wm-gold, #d4af37);
+    }
+
+    body.wm-blog .wm-blog-excerpt {
+      margin: 0 0 1.25rem;
+      color: var(--wm-text, #f4ece8);
+      font-size: .97rem;
+      line-height: 1.5;
+      opacity: .95;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+    }
+
+    body.wm-blog .wm-blog-copy .wm-outline-button {
+      align-self: flex-start;
+      margin-top: auto;
+      padding: .62rem 1rem;
+      font-size: .9rem;
+    }
+
+    /* The three transferred posts are the blog index.
+       Keep Weebly's required  available to the renderer but do not
+       display its native Author / Archives / Categories / duplicate blog UI. */
+    body.wm-blog .wm-native-blog-content {
+      display: none !important;
+      visibility: hidden !important;
+      width: 0 !important;
+      height: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+    }
+
+    @media (max-width: 900px) {
+      body.wm-blog .wm-blog-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 620px) {
+      body.wm-blog .wm-blog-toolbar,
+      body.wm-blog .wm-blog-list {
+        width: min(100% - 1.25rem, 430px);
+      }
+
+      body.wm-blog .wm-blog-list {
+        grid-template-columns: 1fr !important;
+        gap: 1.1rem !important;
+      }
+
+      body.wm-blog .wm-blog-copy {
+        padding: 1.15rem !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body.wm-blog .wm-blog-image img {
+        transition: none;
+      }
+
+      body.wm-blog .wm-blog-card:hover .wm-blog-image img {
+        transform: none;
+      }
+    }
+  </style>
+  <title>Blog | William Martino</title>
+</head>
+
+<body class='wm-page wm-blog  wsite-theme-light'>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="wm-header">
+    <div class="wm-shell wm-header-inner">
+      <a class="wm-brand" href="index.html" aria-label="William Martino home">
+        <img src="images/william-martino-logo.jpg" alt="William Martino">
+        <span class="wm-required-title">William Martino</span>
+      </a>
+
+      <button class="wm-menu-toggle" type="button" aria-controls="wm-menu" aria-expanded="false">Menu</button>
+      <nav id="wm-menu" class="wm-menu" aria-label="Primary navigation"><ul class="wsite-menu-default">
+  <li class="wsite-menu-item-wrap"><a class="wsite-menu-item" href="index.html">Home</a></li>
+  <li class="wsite-menu-item-wrap"><a class="wsite-menu-item" href="bibliography.html">Bibliography</a></li>
+  <li class="wsite-menu-item-wrap">
+    <a class="wsite-menu-item" href="blog.html">Blog</a>
+    <div class="wsite-menu-wrap">
+      <ul class="wsite-menu">
+        <li class="wsite-menu-subitem-wrap"><a class="wsite-menu-subitem" href="01-meet-william-martino.html">Meet William Martino</a></li>
+        <li class="wsite-menu-subitem-wrap"><a class="wsite-menu-subitem" href="02-the-battle-of-good-and-evil.html">The Battle of Good and Evil</a></li>
+        <li class="wsite-menu-subitem-wrap"><a class="wsite-menu-subitem" href="03-exploring-obsession.html">Exploring Obsession</a></li>
+      </ul>
+    </div>
+  </li>
+  <li class="wsite-menu-item-wrap"><a class="wsite-menu-item" href="about-william-martino.html">About William Martino</a></li>
+</ul></nav>
+
+      <a class="wm-shop-button"
+         href="https://www.amazon.com/stores/William-Martino/author/B0GW3162DM?ref=sr_ntt_srch_lnk_2&qid=1788840681&sr=8-2&shoppingPortalEnabled=true&ccs_id=05f1d7eb-0b42-4247-9d75-697154f0a7e5"
+         target="_blank"
+         rel="noopener">Shop Books</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="wm-blog-section">
+      <div class="wm-blog-toolbar">All Posts</div>
+
+      <div class="wm-blog-list">
+        <article class="wm-blog-card">
+          <a class="wm-blog-image" href="01-meet-william-martino.html">
+            <img src="images/blog-meet-william.png"
+                 alt="Meet William Martino: Indie Horror Author Extraordinaire">
+          </a>
+          <div class="wm-blog-copy">
+            <h2>
+              <a href="01-meet-william-martino.html">
+                Meet William Martino: Indie Horror Author Extraordinaire
+              </a>
+            </h2>
+            <p class="wm-blog-excerpt">
+              William Martino is not just another name in the indie horror scene; he is a force to be reckoned with. His chilling narratives and compelling characters have carved out a distinctive place in indie horror.
+            </p>
+            <a class="wm-outline-button" href="01-meet-william-martino.html">Read Post</a>
+          </div>
+        </article>
+
+        <article class="wm-blog-card">
+          <a class="wm-blog-image" href="02-the-battle-of-good-and-evil.html">
+            <img src="images/blog-good-evil.png"
+                 alt="The Battle of Good and Evil in Horror Stories">
+          </a>
+          <div class="wm-blog-copy">
+            <h2>
+              <a href="02-the-battle-of-good-and-evil.html">
+                The Battle of Good and Evil in Horror Stories
+              </a>
+            </h2>
+            <p class="wm-blog-excerpt">
+              Horror stories tap into our deepest fears and anxieties, often placing good and evil in direct conflict. That struggle creates the tension that keeps readers on the edge of their seats.
+            </p>
+            <a class="wm-outline-button" href="02-the-battle-of-good-and-evil.html">Read Post</a>
+          </div>
+        </article>
+
+        <article class="wm-blog-card">
+          <a class="wm-blog-image" href="03-exploring-obsession.html">
+            <img src="images/blog-obsession.png"
+                 alt="Exploring Obsession in Indie Horror Literature">
+          </a>
+          <div class="wm-blog-copy">
+            <h2>
+              <a href="03-exploring-obsession.html">
+                Exploring Obsession in Indie Horror Literature
+              </a>
+            </h2>
+            <p class="wm-blog-excerpt">
+              Indie horror literature combines creativity, raw emotion, and psychological depth. One of its most compelling recurring themes is obsession and the damage it can do to characters and their world.
+            </p>
+            <a class="wm-outline-button" href="03-exploring-obsession.html">Read Post</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+<footer class="wm-footer">
+    <div class="wm-shell wm-footer-inner">
+      <p>© 2026 William Martino. All rights reserved.</p>
+      <p>Designed for the Shadows</p>
+      
+    </div>
+  </footer>
+
+  <script src="scripts/custom.js" defer></script>
+</body>
+</html>
