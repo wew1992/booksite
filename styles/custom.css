@@ -1,0 +1,962 @@
+/* William Martino / Weebly custom theme */
+:root {
+  --wm-bg: #120101;
+  --wm-panel: #1d0b0b;
+  --wm-panel-2: #250d0d;
+  --wm-text: #f4ece8;
+  --wm-muted: #cbbdb7;
+  --wm-gold: #d4af37;
+  --wm-red: #6e0d0d;
+  --wm-line: rgba(212, 175, 55, .72);
+  --wm-max: 1536px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body.wm-page { margin: 0; background: var(--wm-bg); color: var(--wm-text); font-family: Arial, Helvetica, sans-serif; font-size: 17px; line-height: 1.58; }
+body.wm-page a { color: inherit; }
+body.wm-page img { max-width: 100%; display: block; }
+body.wm-page h1, body.wm-page h2, body.wm-page h3, body.wm-page h4 { font-weight: 400; line-height: 1.15; margin: 0 0 1rem; }
+body.wm-page h1 { font-size: clamp(2.4rem, 5vw, 4.8rem); }
+body.wm-page h2 { font-size: clamp(2rem, 3.6vw, 3.5rem); }
+body.wm-page h3 { font-size: clamp(1.3rem, 2vw, 1.8rem); }
+body.wm-page p { margin: 0 0 1.1rem; }
+.wm-shell { width: min(var(--wm-max), calc(100% - 8vw)); margin-inline: auto; }
+.skip-link { position: fixed; left: 1rem; top: -4rem; z-index: 9999; background: var(--wm-gold); color: #160400 !important; padding: .7rem 1rem; }
+.skip-link:focus { top: 1rem; }
+
+/* Header / Weebly generated menu */
+.wm-header { background: var(--wm-bg); position: relative; z-index: 50; }
+.wm-header-inner { min-height: 184px; display: grid; grid-template-columns: 170px 1fr 180px; align-items: start; gap: 2rem; padding-top: 12px; }
+.wm-brand { width: 160px; text-decoration: none; display: block; }
+.wm-brand img { width: 160px; height: 140px; object-fit: contain; object-position: top left; }
+.wm-required-title { position: absolute !important; inline-size: 1px !important; block-size: 1px !important; overflow: hidden !important; clip: rect(0 0 0 0) !important; white-space: nowrap !important; }
+.wm-menu { align-self: start; padding-top: 31px; }
+.wm-menu .wsite-menu-default, .wm-menu > ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; gap: clamp(2rem, 5vw, 5.4rem); }
+.wm-menu .wsite-menu-default li, .wm-menu > ul li { margin: 0; padding: 0; }
+.wm-menu .wsite-menu-default a, .wm-menu > ul a { text-decoration: none; color: #eadfd9; font-size: 20px; white-space: nowrap; padding: .35rem 0; border-bottom: 1px solid transparent; }
+.wm-menu .wsite-menu-default a:hover, .wm-menu .wsite-menu-default #active > a, .wm-menu > ul a:hover, .wm-menu > ul #active > a { border-color: #eadfd9; }
+.wm-shop-button { margin-top: 19px; justify-self: end; display: inline-flex; justify-content: center; align-items: center; min-width: 175px; height: 46px; padding: 0 1.4rem; border: 1px solid var(--wm-gold); border-radius: 999px; color: var(--wm-gold) !important; text-decoration: none; font-size: 19px; }
+.wm-shop-button:hover { background: var(--wm-gold); color: #170400 !important; }
+.wm-menu-toggle { display: none; }
+
+/* Reusable */
+.wm-section { padding-block: clamp(4rem, 8vw, 8rem); }
+.wm-centered { text-align: center; }
+.wm-centered > p { max-width: 950px; margin-inline: auto; }
+.wm-kicker { color: var(--wm-gold); font-size: .78rem; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; margin-bottom: 1rem; }
+.wm-small-kicker { margin-top: 2.2rem; }
+.wm-lede { font-size: clamp(1.1rem, 2vw, 1.35rem); color: #fff; }
+.wm-section-heading { max-width: 1000px; margin-bottom: 3rem; }
+.wm-gold-button, .wm-outline-button { display: inline-flex; justify-content: center; align-items: center; text-align: center; text-decoration: none; transition: .2s ease; }
+.wm-gold-button { background: var(--wm-gold); color: #1a0500 !important; border: 1px solid var(--wm-gold); border-radius: 999px; padding: .7rem 1.7rem; font-size: 1.05rem; line-height: 1.25; }
+.wm-gold-button:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.wm-outline-button { border: 1px solid var(--wm-gold); color: var(--wm-gold) !important; border-radius: 999px; padding: .7rem 1.7rem; margin-top: 1rem; }
+.wm-outline-button:hover { background: var(--wm-gold); color: #170400 !important; }
+
+/* Home hero */
+.wm-hero { padding-top: 82px; padding-bottom: 55px; }
+.wm-hero-frame { min-height: 795px; border: 1px solid var(--wm-gold); display: grid; grid-template-columns: 48.2% 51.8%; align-items: stretch; padding: 7px 0 31px 0; }
+.wm-hero-art { min-width: 0; display: flex; align-items: flex-start; justify-content: flex-start; }
+.wm-hero-art img { width: 100%; height: 100%; max-height: 757px; object-fit: cover; object-position: center top; }
+.wm-hero-copy-wrap { position: relative; display: grid; place-items: center; min-height: 700px; }
+.wm-hero-copy { width: 74%; background: var(--wm-panel); padding: clamp(2.5rem, 5vw, 5rem); position: relative; z-index: 2; }
+.wm-hero-copy p { font-size: clamp(1.5rem, 2.2vw, 2rem); line-height: 1.37; margin-bottom: 2.4rem; }
+.wm-hero-copy .wm-gold-button { display: flex; width: fit-content; min-width: 285px; margin-inline: auto; font-size: 1.05rem; }
+.wm-dot { width: 42px; height: 42px; border-radius: 50%; background: #6e0d0d; position: absolute; }
+.wm-dot.d1 { top: 12%; left: 13%; } .wm-dot.d2 { top: 12%; left: 47%; } .wm-dot.d3 { top: 12%; right: 12%; }
+.wm-dot.d4 { bottom: 11%; left: 13%; } .wm-dot.d5 { bottom: 11%; left: 47%; } .wm-dot.d6 { bottom: 11%; right: 12%; }
+
+.wm-fan-shop { text-align: center; }
+.wm-fan-shop img { width: 100%; border: 1px solid var(--wm-line); }
+.wm-fan-shop .wm-gold-button { margin-top: 2rem; }
+.wm-trilogy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 3vw, 3rem); }
+.wm-trilogy-card { border: 1px solid var(--wm-line); background: rgba(255,255,255,.02); padding: 1rem 1rem 1.6rem; }
+.wm-trilogy-card img { aspect-ratio: 4/5; width: 100%; object-fit: cover; margin-bottom: 1.4rem; }
+.wm-trilogy-card h3 { color: #fff; }
+.wm-trilogy-card p { color: var(--wm-muted); }
+.wm-archive { text-align: center; border-top: 1px solid rgba(212,175,55,.25); border-bottom: 1px solid rgba(212,175,55,.25); }
+.wm-archive p { max-width: 760px; margin-inline: auto; }
+
+/* Contact */
+.wm-contact { background: #180303; }
+.wm-contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(3rem, 8vw, 8rem); }
+.wm-contact a { color: var(--wm-gold) !important; }
+.wm-socials { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.wm-contact-form { display: grid; gap: 1.2rem; }
+.wm-contact-form label { display: grid; gap: .45rem; }
+.wm-contact-form input, .wm-contact-form select, .wm-contact-form textarea { width: 100%; background: #100101; border: 1px solid rgba(212,175,55,.55); color: var(--wm-text); padding: .85rem 1rem; font: inherit; border-radius: 0; }
+.wm-contact-form textarea { resize: vertical; }
+.wm-contact-form .wm-gold-button { justify-self: start; cursor: pointer; }
+
+/* Bibliography */
+.wm-page-banner { padding-top: 65px; padding-bottom: 35px; }
+.wm-page-banner img { width: 100%; max-height: 500px; object-fit: cover; border: 1px solid var(--wm-line); }
+.wm-books { padding-top: 3rem; }
+.wm-book { display: grid; grid-template-columns: minmax(260px, 34%) 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; padding-block: clamp(3rem, 6vw, 6rem); border-top: 1px solid rgba(212,175,55,.32); }
+.wm-book:first-child { border-top: 0; }
+.wm-book-reverse { grid-template-columns: 1fr minmax(260px,34%); }
+.wm-book-reverse .wm-book-cover { order: 2; }
+.wm-book-cover img { width: 100%; max-height: 680px; object-fit: contain; background: #080000; }
+.wm-book-copy h2 { color: var(--wm-gold); font-size: clamp(1.8rem, 3vw, 3rem); }
+.wm-book-copy p { color: #eee4df; }
+.wm-book-copy .wm-gold-button { margin-top: 1rem; }
+
+/* Blog */
+.wm-blog-list { display: grid; gap: 3rem; }
+.wm-blog-card { border: 1px solid rgba(212,175,55,.45); background: var(--wm-panel); display: grid; grid-template-columns: 36% 1fr; min-height: 340px; }
+.wm-blog-image img { width: 100%; height: 100%; object-fit: cover; }
+.wm-blog-copy { padding: clamp(2rem, 4vw, 4rem); }
+.wm-blog-copy h2 { font-size: clamp(1.7rem, 3vw, 2.8rem); }
+.wm-blog-copy h2 a { text-decoration: none; }
+.wm-blog-copy h2 a:hover { color: var(--wm-gold); }
+.wm-blog-meta { color: var(--wm-muted); font-size: .9rem; }
+
+/* About */
+.wm-about-intro { padding-top: 70px; text-align: center; }
+.wm-about-images { display: grid; grid-template-columns: 1fr 1.15fr; gap: 1rem; border: 1px solid var(--wm-line); padding: 8px; margin-bottom: 3rem; }
+.wm-about-images img { width: 100%; height: 500px; object-fit: cover; }
+.wm-prose { max-width: 1150px; }
+.wm-prose p { font-size: 1.08rem; }
+.wm-motto { background: var(--wm-panel); border-block: 1px solid rgba(212,175,55,.35); }
+.wm-motto blockquote { margin: 1.5rem auto 0; max-width: 1000px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1.4; color: var(--wm-gold); }
+.wm-faqs { max-width: 1200px; }
+.wm-faqs h3 { color: var(--wm-gold); }
+.wm-faq { border-top: 1px solid rgba(212,175,55,.35); padding: 0; }
+.wm-faq:last-child { border-bottom: 1px solid rgba(212,175,55,.35); }
+.wm-faq summary { cursor: pointer; list-style: none; padding: 1.5rem 3rem 1.5rem 0; position: relative; font-size: 1.15rem; }
+.wm-faq summary::-webkit-details-marker { display:none; }
+.wm-faq summary::after { content: '+'; position: absolute; right: .4rem; top: 1.15rem; color: var(--wm-gold); font-size: 1.7rem; }
+.wm-faq[open] summary::after { content: '–'; }
+.wm-faq-answer { padding: 0 0 1.5rem; color: #e9ded9; }
+
+/* Blog posts */
+.wm-post-shell { max-width: 1080px; }
+.wm-back-link { color: var(--wm-gold) !important; text-decoration: none; display: inline-block; margin-bottom: 2rem; }
+.wm-post-content { background: var(--wm-panel); border: 1px solid rgba(212,175,55,.38); padding: clamp(1.5rem, 5vw, 4rem); }
+.wm-post-content h1 { font-size: clamp(2.2rem, 5vw, 4rem); }
+.wm-post-content h2 { color: var(--wm-gold); font-size: clamp(1.6rem, 3vw, 2.5rem); margin-top: 2.4rem; }
+.wm-post-content h3 { margin-top: 1.8rem; }
+.wm-post-content img { width: 100%; margin: 2rem 0; }
+.wm-post-content ul, .wm-post-content ol { padding-left: 1.5rem; }
+
+
+/* Weebly child-page blog transfer fixes */
+.wm-blog-intro { color: var(--wm-muted); max-width: 760px; margin: 0 auto; }
+.wm-import-post > p { margin-bottom: 1.25rem; }
+.wm-import-post figure { margin: 2rem 0; }
+.wm-import-post figcaption { color: var(--wm-muted); font-size: .9rem; margin-top: .6rem; }
+.wm-import-post ul, .wm-import-post ol { margin: 1rem 0 1.5rem; padding-left: 1.6rem; }
+.wm-import-post ul { list-style: disc; }
+.wm-import-post ol { list-style: decimal; }
+.wm-import-post li { margin-bottom: .6rem; }
+.wm-import-post strong { color: #fff; }
+.wm-post-content .wm-blog-meta { margin-bottom: 2.2rem; }
+
+/* Footer */
+.wm-editor-content:empty { display:none; }
+.wm-footer { border-top: 1px solid rgba(212,175,55,.3); background: #0d0000; }
+.wm-footer-inner { min-height: 150px; padding-block: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; color: var(--wm-muted); }
+.wm-footer-inner p:nth-child(2) { text-align: right; }
+.wm-weebly-footer { display: none !important; }
+
+/* Hide the injected Weebly promotional footer if the platform adds it after render. */
+#weebly-footer-signup-container-v3 { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; }
+
+/* Weebly editor cleanup */
+.wsite-content-title, .paragraph { color: inherit; }
+.wm-page .wsite-button { border-radius: 999px; }
+
+@media (max-width: 1000px) {
+  .wm-shell { width: min(100% - 40px, var(--wm-max)); }
+  .wm-header-inner { grid-template-columns: 120px 1fr auto; min-height: 130px; align-items: center; padding-top: 0; }
+  .wm-brand, .wm-brand img { width: 115px; height: 105px; }
+  .wm-menu-toggle { display: inline-flex; justify-self: end; background: transparent; color: var(--wm-gold); border: 1px solid var(--wm-gold); padding: .6rem 1rem; }
+  .wm-menu { display: none; position: absolute; top: 118px; left: 20px; right: 20px; background: #1b0606; border: 1px solid rgba(212,175,55,.5); padding: 1.25rem; box-shadow: 0 20px 40px rgba(0,0,0,.35); }
+  .wm-menu.is-open { display:block; }
+  .wm-menu .wsite-menu-default, .wm-menu > ul { display: grid; gap: 0; justify-content: stretch; }
+  .wm-menu .wsite-menu-default a, .wm-menu > ul a { display:block; padding: .8rem .4rem; }
+  .wm-shop-button { margin: 0; min-width: 140px; height: 40px; }
+  .wm-hero { padding-top: 35px; }
+  .wm-hero-frame { grid-template-columns: 1fr; padding: 8px; }
+  .wm-hero-art img { max-height: none; }
+  .wm-hero-copy-wrap { min-height: 520px; }
+  .wm-hero-copy { width: 82%; }
+  .wm-trilogy-grid { grid-template-columns: 1fr; }
+  .wm-contact-grid { grid-template-columns: 1fr; }
+  .wm-book, .wm-book-reverse { grid-template-columns: 1fr; }
+  .wm-book-reverse .wm-book-cover { order: 0; }
+  .wm-book-cover img { max-height: 600px; }
+  .wm-blog-card { grid-template-columns: 1fr; }
+  .wm-blog-image img { aspect-ratio: 16/9; }
+  .wm-about-images { grid-template-columns: 1fr; }
+  .wm-about-images img { height: auto; }
+}
+
+@media (max-width: 650px) {
+  body.wm-page { font-size: 16px; }
+  .wm-header-inner { grid-template-columns: 90px 1fr; gap: 1rem; }
+  .wm-brand, .wm-brand img { width: 90px; height: 85px; }
+  .wm-menu-toggle { grid-column: 2; grid-row: 1; }
+  .wm-shop-button { grid-column: 1 / -1; justify-self: stretch; width: 100%; margin-bottom: 1rem; }
+  .wm-header-inner { min-height: 150px; }
+  .wm-menu { top: 100px; }
+  .wm-hero-frame { min-height: 0; }
+  .wm-hero-copy-wrap { min-height: 460px; }
+  .wm-hero-copy { width: 86%; padding: 2rem 1.5rem; }
+  .wm-hero-copy p { font-size: 1.25rem; }
+  .wm-dot { width: 28px; height: 28px; }
+  .wm-dot.d1, .wm-dot.d4 { left: 5%; } .wm-dot.d3, .wm-dot.d6 { right: 5%; }
+  .wm-footer-inner { grid-template-columns: 1fr; }
+  .wm-footer-inner p:nth-child(2) { text-align: left; }
+  .wm-weebly-footer { display: none !important; }
+}
+
+/* --------------------------------------------------------------------------
+   v4 hardening: generated Weebly navigation, promotional footer, native form,
+   and Wix-like scroll-in motion.
+   -------------------------------------------------------------------------- */
+
+/* Weebly's generated navigation can inherit display/float rules from platform
+   CSS. Force every TOP-LEVEL page item back into our flex navigation. */
+.wm-menu > .wsite-menu-default {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.wm-menu > .wsite-menu-default > .wsite-menu-item-wrap {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  float: none !important;
+  width: auto !important;
+  height: auto !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.wm-menu > .wsite-menu-default > .wsite-menu-item-wrap > .wsite-menu-item {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Blog child pages remain a flyout, matching the original site's clean
+   top-level Home / Bibliography / Blog / About navigation. */
+@media (min-width: 1001px) {
+  .wm-menu .wsite-menu-wrap {
+    position: absolute !important;
+    top: calc(100% + .45rem) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    min-width: 280px !important;
+    padding-top: .35rem !important;
+    z-index: 100 !important;
+  }
+
+  .wm-menu .wsite-menu-item-wrap:hover > .wsite-menu-wrap,
+  .wm-menu .wsite-menu-item-wrap:focus-within > .wsite-menu-wrap {
+    display: block !important;
+  }
+
+  .wm-menu .wsite-menu-wrap > .wsite-menu {
+    display: grid !important;
+    gap: 0 !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: .6rem !important;
+    background: #1b0606 !important;
+    border: 1px solid rgba(212,175,55,.5) !important;
+    box-shadow: 0 18px 35px rgba(0,0,0,.45) !important;
+  }
+
+  .wm-menu .wsite-menu-subitem-wrap {
+    display: block !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .wm-menu .wsite-menu-subitem {
+    display: block !important;
+    padding: .65rem .8rem !important;
+    color: #eadfd9 !important;
+    font-size: 15px !important;
+    white-space: normal !important;
+  }
+
+  .wm-menu .wsite-menu-subitem:hover {
+    color: var(--wm-gold) !important;
+    background: rgba(212,175,55,.08) !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .wm-menu.is-open > .wsite-menu-default {
+    display: grid !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .wm-menu.is-open > .wsite-menu-default > .wsite-menu-item-wrap {
+    display: block !important;
+  }
+
+  /* Do not force Blog child pages into the compact mobile menu. */
+  .wm-menu .wsite-menu-wrap {
+    display: none !important;
+  }
+}
+
+/* Optional native Weebly contact form.  The existing mailto form remains as a
+   fallback until a native form is dragged into this content area. */
+.wm-native-contact:empty { display: none; }
+.wm-native-contact.has-native-form { display: block; }
+.wm-native-contact .wsite-form-container,
+.wm-native-contact form { width: 100%; }
+.wm-native-contact .wsite-form-field { margin-bottom: 1.2rem !important; }
+.wm-native-contact .wsite-form-label { color: var(--wm-text) !important; font: inherit !important; }
+.wm-native-contact input,
+.wm-native-contact select,
+.wm-native-contact textarea,
+.wm-native-contact .wsite-form-input,
+.wm-native-contact .form-select {
+  width: 100% !important;
+  background: #100101 !important;
+  border: 1px solid rgba(212,175,55,.55) !important;
+  color: var(--wm-text) !important;
+  padding: .85rem 1rem !important;
+  font: inherit !important;
+  border-radius: 0 !important;
+}
+.wm-native-contact .wsite-button,
+.wm-native-contact .wsite-button-inner {
+  background: var(--wm-gold) !important;
+  color: #1a0500 !important;
+  border: 1px solid var(--wm-gold) !important;
+  border-radius: 999px !important;
+}
+.wm-contact-status { min-height: 1.5em; margin: 0; color: var(--wm-muted); font-size: .9rem; }
+
+/* Hide known current/legacy Weebly promotional footer wrappers. */
+#weebly-footer-signup-container-v3,
+#weebly-footer-signup-container,
+[id^="weebly-footer-signup-container"],
+[class*="weebly-footer-signup-container"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Progressive scroll-in animation inspired by the old Wix presentation.
+   JavaScript only adds these classes when available, so content is never
+   dependent on animation to be readable. */
+.wm-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity .72s ease var(--wm-reveal-delay, 0ms),
+    transform .72s cubic-bezier(.22, 1, .36, 1) var(--wm-reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.wm-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .wm-reveal,
+  .wm-reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   v5 explicit public CSS hardening
+   This same stylesheet is also published as ../custom.css.
+   ========================================================================== */
+
+/* Desktop navigation must always occupy the center header column. */
+@media (min-width: 1001px) {
+  .wm-menu {
+    display: block !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding-top: 31px !important;
+  }
+
+  .wm-menu > .wsite-menu-default {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: clamp(2rem, 4.2vw, 4.8rem) !important;
+    width: 100% !important;
+  }
+
+  .wm-menu > .wsite-menu-default > li {
+    display: block !important;
+    position: relative !important;
+    float: none !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .wm-menu > .wsite-menu-default > li > a {
+    display: block !important;
+    color: #eadfd9 !important;
+    background: transparent !important;
+    text-decoration: none !important;
+    font: 400 20px/1.35 Arial, Helvetica, sans-serif !important;
+    white-space: nowrap !important;
+    padding: .35rem 0 !important;
+    border: 0 !important;
+    border-bottom: 1px solid transparent !important;
+  }
+
+  .wm-menu > .wsite-menu-default > li > a:hover,
+  .wm-menu > .wsite-menu-default > li > a:focus-visible,
+  .wm-menu > .wsite-menu-default > li > a.wm-current-link,
+  .wm-menu > .wsite-menu-default > #active > a,
+  .wm-menu > .wsite-menu-default > .wsite-nav-current > a {
+    border-bottom-color: #eadfd9 !important;
+  }
+
+  /* Weebly flyout for the three Blog child pages. */
+  .wm-menu > .wsite-menu-default > li > .wsite-menu-wrap {
+    display: none;
+    position: absolute !important;
+    top: calc(100% + .5rem) !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    min-width: 300px !important;
+    width: max-content !important;
+    max-width: 420px !important;
+    z-index: 500 !important;
+    padding: .35rem 0 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+
+  .wm-menu > .wsite-menu-default > li:hover > .wsite-menu-wrap,
+  .wm-menu > .wsite-menu-default > li:focus-within > .wsite-menu-wrap {
+    display: block !important;
+  }
+
+  .wm-menu .wsite-menu-wrap > .wsite-menu {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    list-style: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: .55rem !important;
+    background: #1b0606 !important;
+    border: 1px solid rgba(212,175,55,.55) !important;
+    box-shadow: 0 18px 35px rgba(0,0,0,.5) !important;
+  }
+
+  .wm-menu .wsite-menu-wrap .wsite-menu-subitem-wrap {
+    display: block !important;
+    position: relative !important;
+    float: none !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .wm-menu .wsite-menu-wrap .wsite-menu-subitem {
+    display: block !important;
+    width: 100% !important;
+    padding: .7rem .85rem !important;
+    color: #eadfd9 !important;
+    background: transparent !important;
+    font: 400 15px/1.35 Arial, Helvetica, sans-serif !important;
+    white-space: normal !important;
+    text-decoration: none !important;
+    border: 0 !important;
+  }
+
+  .wm-menu .wsite-menu-wrap .wsite-menu-subitem:hover,
+  .wm-menu .wsite-menu-wrap .wsite-menu-subitem:focus-visible {
+    color: var(--wm-gold) !important;
+    background: rgba(212,175,55,.08) !important;
+  }
+
+  .wm-menu .wsite-menu-arrow {
+    display: none !important;
+  }
+}
+
+/* On compact layouts the Menu button owns visibility. */
+@media (max-width: 1000px) {
+  .wm-menu > .wsite-menu-default {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .wm-menu > .wsite-menu-default > li {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .wm-menu > .wsite-menu-default > li > a {
+    display: block !important;
+    width: 100% !important;
+    color: #eadfd9 !important;
+    padding: .8rem .4rem !important;
+    text-decoration: none !important;
+  }
+
+  .wm-menu > .wsite-menu-default > li > .wsite-menu-wrap {
+    display: none !important;
+  }
+}
+
+/* Keep the contact layout structurally two-column on desktop even when the
+   optional Weebly native form area is empty. */
+.wm-contact-form-column {
+  min-width: 0;
+  display: block;
+}
+
+.wm-native-contact {
+  display: none;
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+.wm-native-contact.has-native-form {
+  display: block;
+}
+
+/* The mailto fallback remains in the right column until a native Weebly form
+   exists in the editable contact area. */
+.wm-contact-form[hidden] {
+  display: none !important;
+}
+
+/* A little more of the smooth Wix-like reveal behavior without importing Wix. */
+.wm-js .wm-reveal {
+  opacity: 0;
+  transition:
+    opacity .72s ease var(--wm-reveal-delay, 0ms),
+    transform .72s cubic-bezier(.22, 1, .36, 1) var(--wm-reveal-delay, 0ms);
+}
+
+.wm-js .wm-reveal-up {
+  transform: translate3d(0, 28px, 0);
+}
+
+.wm-js .wm-reveal-left {
+  transform: translate3d(-28px, 18px, 0);
+}
+
+.wm-js .wm-reveal-right {
+  transform: translate3d(28px, 18px, 0);
+}
+
+.wm-js .wm-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.wm-header-inner {
+  animation: wmHeaderIn .55s ease-out both;
+}
+
+.wm-hero-frame {
+  animation: wmHeroIn .7s .08s ease-out both;
+}
+
+@keyframes wmHeaderIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wmHeroIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wm-header-inner,
+  .wm-hero-frame {
+    animation: none !important;
+  }
+}
+
+
+/* ========================================================================== 
+   v7 — About page overhaul + working Whisper/native Weebly form presentation
+   ========================================================================== */
+
+/* About hero intentionally mirrors the original dark/gold framed presentation
+   without importing any Wix runtime or platform CSS. */
+.wm-about .wm-about-intro {
+  padding-top: clamp(2.5rem, 5vw, 5rem);
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  text-align: left;
+}
+
+.wm-about-banner {
+  border: 1px solid var(--wm-gold);
+  background: linear-gradient(135deg, #210b0b 0%, #180303 58%, #120101 100%);
+  min-height: clamp(180px, 20vw, 260px);
+  padding: clamp(2.25rem, 5vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wm-about-banner::after {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(212,175,55,.16);
+  border-radius: 50%;
+  right: -115px;
+  top: -145px;
+}
+
+.wm-about-banner h1 {
+  margin: 0;
+  max-width: 1000px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 6.8rem);
+  line-height: .98;
+  letter-spacing: -.035em;
+  color: #fff5e6;
+}
+
+.wm-about-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.wm-about-photo {
+  margin: 0;
+  border: 1px solid var(--wm-gold);
+  background: #080000;
+  overflow: hidden;
+}
+
+.wm-about-photo img,
+.wm-about-images img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.03 / .92;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform .55s ease, filter .55s ease;
+}
+
+.wm-about-photo:hover img {
+  transform: scale(1.018);
+  filter: contrast(1.025);
+}
+
+.wm-about-story {
+  padding-top: clamp(3rem, 6vw, 6rem);
+  border-top: 1px solid rgba(212,175,55,.22);
+}
+
+.wm-about-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(300px, .75fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.wm-about-copy {
+  max-width: none;
+}
+
+.wm-about-copy h2 {
+  max-width: 900px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  margin-bottom: 2rem;
+}
+
+.wm-about-copy p {
+  max-width: 980px;
+  color: #eee4df;
+  font-size: 1.04rem;
+}
+
+.wm-about-callout {
+  position: sticky;
+  top: 28px;
+  border: 1px solid rgba(212,175,55,.55);
+  background: #1d0b0b;
+  padding: clamp(1.6rem, 3vw, 2.5rem);
+}
+
+.wm-about-mark {
+  color: #fff5e6;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.5vw, 3.4rem);
+  line-height: 1.03;
+  letter-spacing: -.025em;
+  margin: .4rem 0 1.7rem !important;
+}
+
+.wm-about-callout blockquote {
+  margin: 0;
+  color: var(--wm-gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+.wm-about-callout .wm-outline-button {
+  margin-top: 2rem;
+}
+
+.wm-about .wm-faqs {
+  max-width: 1280px;
+  padding-top: clamp(4rem, 7vw, 7rem);
+}
+
+.wm-faq-heading {
+  max-width: 900px;
+  margin-bottom: 2.2rem;
+}
+
+.wm-faq-heading h2 {
+  margin-bottom: .35rem;
+}
+
+.wm-faq-heading h3 {
+  margin-bottom: .8rem;
+  color: var(--wm-gold);
+}
+
+.wm-faq-heading p {
+  color: var(--wm-muted);
+}
+
+.wm-about .wm-faq {
+  border-top: 1px solid rgba(212,175,55,.40);
+}
+
+.wm-about .wm-faq:last-child {
+  border-bottom: 1px solid rgba(212,175,55,.40);
+}
+
+.wm-about .wm-faq summary {
+  padding: 1.55rem 4rem 1.55rem 0;
+  font-weight: 600;
+  font-size: clamp(1rem, 1.5vw, 1.16rem);
+  color: #f4ece8;
+  transition: color .2s ease, padding-left .2s ease;
+}
+
+.wm-about .wm-faq summary:hover,
+.wm-about .wm-faq summary:focus-visible {
+  color: var(--wm-gold);
+  padding-left: .35rem;
+}
+
+.wm-about .wm-faq summary:focus-visible {
+  outline: 1px solid var(--wm-gold);
+  outline-offset: 5px;
+}
+
+.wm-about .wm-faq summary::after {
+  content: "+";
+  right: .45rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--wm-gold);
+  font-size: 1.8rem;
+  font-weight: 400;
+  transition: transform .2s ease;
+}
+
+.wm-about .wm-faq[open] summary::after {
+  content: "−";
+}
+
+.wm-about .wm-faq-answer {
+  max-width: 1080px;
+  padding: .15rem 3.5rem 1.8rem 0;
+  color: #e9ded9;
+}
+
+.wm-about .wm-faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+/* Whisper / Confession system ------------------------------------------------ */
+.wm-contact-form-column {
+  min-width: 0;
+}
+
+.wm-contact-form,
+.wm-native-contact form,
+.wm-native-contact .wsite-form-container {
+  width: 100%;
+}
+
+.wm-contact-form label,
+.wm-native-contact .wsite-form-field {
+  margin: 0 0 1.15rem !important;
+}
+
+.wm-contact-form input,
+.wm-contact-form select,
+.wm-contact-form textarea,
+.wm-native-contact input:not([type="checkbox"]):not([type="radio"]),
+.wm-native-contact select,
+.wm-native-contact textarea,
+.wm-native-contact .wsite-form-input,
+.wm-native-contact .form-select {
+  width: 100% !important;
+  min-height: 54px;
+  background: #100101 !important;
+  border: 1px solid rgba(212,175,55,.64) !important;
+  color: var(--wm-text) !important;
+  border-radius: 0 !important;
+  padding: .85rem 1rem !important;
+  font: inherit !important;
+  box-shadow: none !important;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.wm-contact-form textarea,
+.wm-native-contact textarea {
+  min-height: 190px;
+  resize: vertical;
+}
+
+.wm-contact-form input:focus,
+.wm-contact-form select:focus,
+.wm-contact-form textarea:focus,
+.wm-native-contact input:focus,
+.wm-native-contact select:focus,
+.wm-native-contact textarea:focus {
+  outline: none !important;
+  border-color: var(--wm-gold) !important;
+  box-shadow: 0 0 0 3px rgba(212,175,55,.11) !important;
+  background: #160303 !important;
+}
+
+.wm-contact-form input::placeholder,
+.wm-contact-form textarea::placeholder,
+.wm-native-contact input::placeholder,
+.wm-native-contact textarea::placeholder {
+  color: #a99a95;
+  opacity: 1;
+}
+
+.wm-native-contact .wsite-form-label,
+.wm-native-contact label {
+  color: var(--wm-text) !important;
+  font: inherit !important;
+}
+
+.wm-native-contact .wsite-form-instructions,
+.wm-native-contact .form-required,
+.wm-native-contact .wsite-form-sublabel {
+  color: var(--wm-muted) !important;
+}
+
+.wm-native-contact .wsite-button,
+.wm-native-contact .wsite-button-inner,
+.wm-native-contact button[type="submit"],
+.wm-native-contact input[type="submit"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 46px !important;
+  padding: .7rem 1.7rem !important;
+  background: var(--wm-gold) !important;
+  border: 1px solid var(--wm-gold) !important;
+  border-radius: 999px !important;
+  color: #1a0500 !important;
+  font: inherit !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+}
+
+.wm-contact-status {
+  min-height: 1.6em;
+  margin: .15rem 0 0;
+  color: var(--wm-muted);
+  font-size: .92rem;
+}
+
+.wm-contact-status.is-error {
+  color: #ffb4a8;
+}
+
+.wm-contact-status.is-success {
+  color: var(--wm-gold);
+}
+
+@media (max-width: 1000px) {
+  .wm-about-story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wm-about-callout {
+    position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  .wm-about-images {
+    grid-template-columns: 1fr;
+  }
+
+  .wm-about-photo img,
+  .wm-about-images img {
+    aspect-ratio: auto;
+    max-height: none;
+  }
+
+  .wm-about-banner {
+    padding: 2rem 1.4rem;
+  }
+
+  .wm-about .wm-faq-answer {
+    padding-right: 0;
+  }
+}
