@@ -11,10 +11,11 @@
       children: [
         { title: "Meet William Martino", url: "01-meet-william-martino.html" },
         { title: "The Battle of Good and Evil", url: "02-the-battle-of-good-and-evil.html" },
-        { title: "Exploring Obsession", url: "03-exploring-obsession.html" }
+        { title: "Exploring Obsession", url: "03-exploring-obsession.html" },
+        { title: "Blood Pact / Pactbound Trilogy", url: "04-Blood-Pact.html" }
       ]
     },
-    { title: "About William Martino", url: "about-william-martino.html" }
+    { title: "About William Martino", url: "about.html" }
   ];
 
   function directChildrenByClass(parent, className) {
