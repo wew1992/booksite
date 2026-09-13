@@ -19,3 +19,21 @@ Keep the image already present in GitHub under that exact spelling. This update 
 
 ## Cloudflare Pages
 Publish the repository root as the site output. No npm/build step is required.
+
+## Static-path rule
+
+All site-owned links use paths relative to the repository root (for example
+`styles/custom.css`, `scripts/custom.js`, `images/...`, and `blog.html`).
+
+This is intentional: a cloned copy can be opened directly from a local folder,
+while the same files also work when deployed at the root of the Cloudflare site.
+
+Do not change these to `/styles/...`, `/scripts/...`, `/images/...`, or other
+leading-slash paths unless the local-folder preview requirement is removed.
+
+The canonical shared assets are:
+
+- `styles/custom.css`
+- `scripts/custom.js`
+
+There is no required `styles/main.css` or `scripts/site.js`.
