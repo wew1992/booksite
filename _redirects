@@ -1,12 +1,10 @@
-# William Martino site redirects for Cloudflare Pages
+# William Martino site redirects for Cloudflare
+
 /Home.html / 301
 /home.html / 301
+
 /AboutMe.html /about.html 301
 /about-william-martino.html /about.html 301
+
 /Bibliography.html /bibliography.html 301
 /Blog.html /blog.html 301
-/04-blood-pact.html /04-Blood-Pact.html 301
-/04-Blood-Pact /04-Blood-Pact.html 301
-/03-exploring-obsession /03-exploring-obsession.html 301
-/02-the-battle-of-good-and-evil /02-the-battle-of-good-and-evil.html 301
-/01-meet-william-martino /01-meet-william-martino.html 301
